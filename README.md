@@ -1,5 +1,7 @@
 # aethra
 
+**a**utomated **e**vent **t**racker and **c**haracterizer for **r**oman **a**lerts
+
 A configurable pipeline for detecting **microlensing events** in photometric
 light curves. It works with any dataset that has time, magnitude, and
 magnitude-error columns (column names are configurable), automatically handling
