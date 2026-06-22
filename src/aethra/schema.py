@@ -1,0 +1,25 @@
+"""Output schema shared across the pipeline."""
+
+OUTPUT_COLUMNS = [
+    "name",
+    "is_candidate",
+    "is_ffp_candidate",
+    "is_variable_star",
+    "veto_periodic",
+    "veto_recurrent",
+    "veto_chromatic",
+    "is_achromatic",
+    "best_season",
+    "is_flat",
+    "chi2_flat",
+    "dof_flat",
+    "chi2_red_flat",
+    "bump_flag",
+    "bump_snr",
+    "t0_fit",
+    "u0_fit",
+    "tE_fit",
+    "chi2_red_pspl",
+    "baseline_mag",
+    "peak_mag",
+]
