@@ -186,21 +186,7 @@ src/aethra/
 └── cli.py           # `aethra` console script
 ```
 
-## Known quirks
 
-These reflect the behavior of the original code and are **preserved as-is**;
-they are documented here so you can decide whether to change them:
-
-- **`config["fap_threshold"]` is not currently wired into the periodic veto.**
-  `run_pipeline_from_dataframe` calls the off-season periodicity check with a
-  hardcoded `fap_threshold=1e-6`. The config key only affects the standalone
-  `is_periodic` / `lomb_scargle_test` helpers. To honor the config value in the
-  pipeline, pass `fap_threshold=...` into `periodic_veto_from_other_seasons`.
-- **`split_into_seasons` labels the very first data point separately.** The
-  first point of a light curve keeps label `0` while the rest of season one is
-  labeled `1`. In practice that single-point "season 0" is dropped by the
-  `min_points` filter, but it does mean the first epoch is excluded from the
-  season scan.
 
 ## Testing
 
