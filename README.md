@@ -22,8 +22,6 @@ For each object the pipeline:
 4. Fits a **point-source point-lens (PSPL)** model to surviving candidates and
    flags short-timescale **free-floating-planet (FFP)** candidates.
 
-The result is a tidy `pandas.DataFrame`, one row per object, with the columns
-listed in [`OUTPUT_COLUMNS`](src/aethra/schema.py).
 
 ## Installation
 for the most updated version:
@@ -35,7 +33,7 @@ pip install -e .
 ```
 (Note: don't forget the . after the -e)
 
-or stable version: 
+or stable version (note: this is not working yet): 
 
 ```
 pip install aethra
@@ -103,22 +101,6 @@ results = load_and_run("data.parquet", config)
 Keys you omit fall back to the built-in defaults; YAML `null` maps to Python
 `None` (e.g. `group_col: null` means one object per file).
 
-## Command line
-
-The package installs an `aethra` console script:
-
-```bash
-# Drive the whole run from a YAML config file
-aethra data.parquet --config config.yaml -o results.csv
-
-# Or pass options as flags (flags override anything also set in --config)
-aethra "lc/*.txt" --columns bjd mag mag_err -o results.csv
-
-# A multi-object CSV with a header row
-aethra data.csv --sep "," --header 0 --group-col name -o results.csv
-```
-
-Run `aethra --help` for the full option list.
 
 ## Configuration reference
 
@@ -188,14 +170,6 @@ src/aethra/
 └── cli.py           # `aethra` console script
 ```
 
-
-
-## Testing
-
-```bash
-pip install -e ".[dev]"
-pytest
-```
 
 ## License
 
