@@ -145,13 +145,29 @@ Passed as the `config` dict (or the matching CLI flag).
 
 ## Output columns
 
-`name`, `is_candidate`, `is_ffp_candidate`, `is_variable_star`,
-`veto_periodic`, `veto_recurrent`, `veto_chromatic`, `is_achromatic`,
-`best_season`, `is_flat`, `chi2_flat`, `dof_flat`, `chi2_red_flat`,
-`bump_flag`, `bump_snr`, `t0_fit`, `u0_fit`, `tE_fit`, `chi2_red_pspl`,
-`baseline_mag`, `peak_mag`.
-
-`t0_fit` is reported with `2450000` subtracted.
+| Column | Type | Description |
+|---|---|---|
+| `name` | str | Object identifier |
+| `is_candidate` | bool | Passed bump test and all three vetoes |
+| `is_ffp_candidate` | bool | Candidate with tE < `ffp_tE_max` days |
+| `is_variable_star` | bool | Passed bump test but rejected by at least one veto |
+| `veto_periodic` | bool | Rejected by periodicity veto |
+| `veto_recurrent` | bool | Rejected by recurrent bump veto |
+| `veto_chromatic` | bool | Rejected by chromatic veto |
+| `is_achromatic` | bool/nan | Result of achromatic test (`nan` = inconclusive) |
+| `best_season` | int | Season ID with the highest bump SNR |
+| `is_flat` | bool | Lightcurve is consistent with a flat baseline |
+| `chi2_flat` | float | χ² of flat model fit |
+| `dof_flat` | int | Degrees of freedom |
+| `chi2_red_flat` | float | Reduced χ² of flat model |
+| `bump_flag` | bool | Rolling-SNR bump detected |
+| `bump_snr` | float | Peak bump SNR |
+| `t0_fit` | float | PSPL best-fit peak time (HJD − 2450000) |
+| `u0_fit` | float | PSPL best-fit impact parameter |
+| `tE_fit` | float | PSPL best-fit Einstein crossing time (days) |
+| `chi2_red_pspl` | float | Reduced χ² of PSPL fit |
+| `baseline_mag` | float | Median baseline magnitude |
+| `peak_mag` | float | Peak (brightest) magnitude |
 
 ## Package layout
 
